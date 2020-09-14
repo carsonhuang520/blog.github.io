@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>music</title>
+    <link rel="stylesheet" href="./css/jquery.mCustomScrollbar.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <script src="./js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="./js/player.js"></script>
+    <script src="./js/progress.js"></script>
+    <script src="./js/lyric.js"></script>
+    <script src="./js/index.js"></script>
+  </head>
+  <body>
+    <div class="header">
+      <h1 class="logo">
+        <a href="javascript:;"></a>
+      </h1>
+      <ul class="register">
+        <li>登录</li>
+        <li>设置</li>
+      </ul>
+    </div>
+    <div class="content">
+      <div class="content-in">
+        <div class="content-left">
+          <div class="content-topbar">
+            <span><i></i>收藏</span>
+            <span><i></i>添加到</span>
+            <span><i></i>下载</span>
+            <span class="del-many"><i></i>删除</span>
+            <span class="clear-all"><i></i>清空列表</span>
+          </div>
+          <div class="content-list" data-mcs-theme="minimal-dark">
+            <ul>
+              <li class="list-title">
+                <div class="list-check"><i></i></div>
+                <div class="list-number"></div>
+                <div class="list-name">歌曲</div>
+                <div class="list-singer">歌手</div>
+                <div class="list-time">时长</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="content-right">
+          <div class="song-info">
+            <a href="javascript:;" class="song-info-pic">
+              <img src="./images/lnj.jpg" alt="/" />
+            </a>
+            <div class="song-info-name">
+              歌曲名称:
+              <a href="javascript:;">告白气球</a>
+            </div>
+            <div class="song-info-singer">
+              歌手名:
+              <a href="javascript:;">周杰伦</a>
+            </div>
+            <div class="song-info-album">
+              专辑名:
+              <a href="javascript:;">告白气球</a>
+            </div>
+          </div>
+          <div class="song-lyric-container">
+            <ul class="song-lyric"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="footer-in">
+        <a href="javascript:;" class="music-pre"></a>
+        <a href="javascript:;" class="music-play"></a>
+        <a href="javascript:;" class="music-next"></a>
+        <div class="music-progress-info">
+          <div class="music-progress-top">
+            <span class="music-progress-name">告白气球 / 周杰伦</span>
+            <span class="music-progress-time">00:00 / 05:23</span>
+          </div>
+          <div class="music-progress-bar">
+            <div class="music-progress-line">
+              <div class="music-progress-dot"></div>
+            </div>
+          </div>
+        </div>
+        <a href="javascript:;" class="music-mode"></a>
+        <a href="javascript:;" class="music-fav"></a>
+        <a href="javascript:;" class="music-down"></a>
+        <a href="javascript:;" class="music-comment"></a>
+        <a href="javascript:;" class="music-only"></a>
+        <div class="music-voice-info">
+          <a href="javascript:;" class="music-voice-icon"></a>
+          <div class="music-voice-bar">
+            <div class="music-voice-line">
+              <div class="music-voice-dot"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mask-bg"></div>
+    <div class="mask"></div>
+    <audio src=""></audio>
+  </body>
+</html>
