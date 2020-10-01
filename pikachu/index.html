@@ -8,7 +8,6 @@
     />
     <title>皮卡丘</title>
     <link rel="stylesheet" href="css/default.css" />
-    <!-- <link rel="stylesheet" href="css/code.css" /> -->
     <style id="styleTag"></style>
   </head>
   <body>
@@ -24,8 +23,12 @@
           <div class="nose"></div>
           <div class="eye left"></div>
           <div class="eye right"></div>
-          <div class="face left"></div>
-          <div class="face right"></div>
+          <div class="face left">
+            <div class="img"></div>
+          </div>
+          <div class="face right">
+            <div class="img"></div>
+          </div>
           <div class="upperLip left"></div>
           <div class="upperLip right"></div>
         </div>
@@ -36,6 +39,7 @@
       <button data-speed="normal" class="active">中速</button>
       <button data-speed="fast">快速</button>
     </div>
+    <audio src="./assets/bgm.mp3"></audio>
     <script src="vendor/jquery.min.js"></script>
     <script src="js/main.js"></script>
   </body>

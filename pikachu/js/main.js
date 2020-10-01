@@ -16,6 +16,11 @@ $(function () {
         break
     }
   })
+  const lower = document.querySelector(".lowerLip")
+  lower.addEventListener("click", function() {
+    const audio = document.querySelector("audio")
+    audio.play()
+  })
   function writeCode(prefix, code, fn) {
     let container = document.querySelector("#code")
     let styleTag = document.querySelector("#styleTag")
@@ -50,6 +55,25 @@ $(function () {
       top: 28px;
       margin-left: -12px;
   }
+  @keyframes wave{
+    0%{
+      transform: rotate(0deg);    
+    }
+    33%{
+      transform: rotate(5deg);    
+    }
+    66%{
+      transform: rotate(-5deg);    
+    }
+    100%{
+      transform: rotate(0deg);    
+    }
+  }
+  .nose:hover{
+    transform-origin: center bottom;
+    animation: wave 300ms infinite linear;
+  }
+  /* 将鼠标放到我鼻子上试试吧 */
   /* 接下来，画皮卡丘的眼睛 */
   .eye {
       width: 49px;
@@ -100,6 +124,18 @@ $(function () {
   .face.right {
       left: 50%;
       margin-left: 116px;
+  }
+  .face > .img {
+    width: 161px;
+    height: 83px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: url("../images/flash.gif");
+  }
+  .face.left > .img {
+    transform: rotateY(180deg);
+    transform-origin: 0 0;
   }
   /* 上嘴唇 */
   .upperLip {
@@ -156,6 +192,7 @@ $(function () {
       margin-left: -50px;
       border-radius: 50px;
   }
+  /* 点击我的舌头有惊喜哈哈哈~ */
   /* 好了，这只皮卡丘送给你 */`
   writeCode("", code)
 })
