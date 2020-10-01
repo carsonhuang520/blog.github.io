@@ -131,7 +131,7 @@ $(function () {
     position: absolute;
     top: 50%;
     left: 50%;
-    background: url("../images/flash.gif");
+    background: url("../assets/images/flash.gif");
   }
   .face.left > .img {
     transform: rotateY(180deg);
