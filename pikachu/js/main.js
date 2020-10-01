@@ -125,18 +125,6 @@ $(function () {
       left: 50%;
       margin-left: 116px;
   }
-  .face > .img {
-    width: 161px;
-    height: 83px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    background: url("../assets/images/flash.gif");
-  }
-  .face.left > .img {
-    transform: rotateY(180deg);
-    transform-origin: 0 0;
-  }
   /* 上嘴唇 */
   .upperLip {
       height: 25px;
