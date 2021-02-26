@@ -23,11 +23,8 @@ body {
   padding: 10px;
 }
 #code {
-  overflow-y: scroll;
+  overflow: hidden;
   height: 100%;
-}
-#code::-webkit-scrollbar {
-  display: none;
 }
 .preview-wrapper {
   flex: 1;
@@ -63,3 +60,6 @@ body {
 .actions > button:focus {
   outline: none;
 }
+
+
+/*# sourceMappingURL=/default.708faaf5.css.map */

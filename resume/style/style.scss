@@ -56,7 +56,8 @@ header {
     .qrcode {
       width: 100px;
       height: 100px;
-      background: red;
+      background-image: url('../image/qrcode.png');
+      background-size: cover;
     }
   }
   aside {
