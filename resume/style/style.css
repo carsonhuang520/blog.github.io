@@ -1,0 +1,285 @@
+/*css reset*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
+.detail-skills {
+  color: #66a9a3;
+  font-weight: bold;
+}
+
+.background-code {
+  color: #e45e09;
+  font-weight: bold;
+}
+
+/*layout*/
+#page {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+header .header-main {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+header .header-main .intro {
+  text-align: center;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+header .header-main .qrcode {
+  width: 100px;
+  height: 100px;
+  background: red;
+}
+
+header aside {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+header aside a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+header aside a:hover {
+  color: #e69191;
+}
+
+header aside ul {
+  margin: 0;
+}
+
+header aside ul li {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+header aside ul li svg {
+  font-size: 1.2em;
+  margin: 3px 5px 0 10px;
+}
+
+main.left {
+  width: 50%;
+  min-height: calc(100vh - 151px);
+  padding: 20px 30px 30px 30px;
+}
+
+main.right {
+  width: 50%;
+  min-height: calc(100vh - 151px);
+  padding: 20px 30px 30px 0;
+}
+
+.main-header {
+  font-weight: bold;
+  padding-left: 20px;
+  height: 40px;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.main-header .header-wrapper {
+  height: 40px;
+  border-left: 2px solid #444;
+  display: flex;
+  align-items: center;
+  padding-left: 25px;
+  font-size: 18px;
+}
+
+.main-header .header-wrapper .icon-wrapper {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.main-header .header-wrapper .icon-wrapper svg {
+  font-size: 1.4em;
+}
+
+.main-header .header-wrapper .intro {
+  font-size: 18px;
+  margin-left: 5px;
+}
+
+.main-header.skills {
+  margin-top: 27px;
+}
+
+.sub-header {
+  padding-left: 20px;
+  position: relative;
+  align-items: center;
+  height: 30px;
+}
+
+.sub-header .icon-wrapper {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #66a9a3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 5px;
+}
+
+.sub-header .icon-wrapper svg {
+  font-size: 1.2em;
+}
+
+.sub-header .intro {
+  background: #444;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 4px;
+  font-size: 16px;
+  padding-left: 28px;
+  color: #ffffff;
+}
+
+.sub-header .prev,
+.sub-header .code {
+  margin-right: 4px;
+  background: #ffffff;
+  border-radius: 6px;
+  font-size: 14px;
+  padding: 0 2px;
+  position: absolute;
+  top: 5px;
+}
+
+.sub-header .prev a,
+.sub-header .code a {
+  color: #333;
+}
+
+.sub-header .prev {
+  right: 85px;
+}
+
+.sub-header .code {
+  right: 0px;
+}
+
+.content {
+  padding-left: 20px;
+}
+
+.content-wrapper {
+  padding-left: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-left: 2px solid #444;
+}
+
+.content-wrapper .content-header {
+  font-weight: bold;
+}
+
+.content-wrapper.blog {
+  display: flex;
+}
+
+.content-wrapper.blog svg {
+  margin-right: 5px;
+}
+
+.content-wrapper.blog .content-main .item {
+  text-indent: 0;
+}
+
+.content-wrapper .content-main .item {
+  text-indent: 24px;
+  word-break: break-all;
+}
+
+.content-wrapper .content-main .item.skill {
+  line-height: 1.6;
+}
+
+/*common*/
+body {
+  font: 16px/1.5 Arial;
+  color: #333;
+  padding-bottom: 30px;
+}
+
+/*page*/
+header {
+  text-align: center;
+  padding: 20px;
+  background: #444;
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  #page {
+    width: 100vw;
+    overflow: hidden;
+  }
+  .header-main {
+    width: 100%;
+  }
+  aside {
+    margin-top: 15px;
+  }
+  main.left {
+    width: 100%;
+    padding: 20px 30px 15px 15px;
+  }
+  main.right {
+    width: 100%;
+    padding: 20px 30px 15px 15px;
+  }
+}
