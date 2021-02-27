@@ -73,6 +73,7 @@ header .header-main .qrcode {
 header aside {
   margin-left: auto;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
 }
 
@@ -87,6 +88,7 @@ header aside a:hover {
 
 header aside ul {
   margin: 0;
+  margin-right: 10px;
 }
 
 header aside ul li {
@@ -253,7 +255,6 @@ main.right {
 body {
   font: 16px/1.5 Arial;
   color: #333;
-  padding-bottom: 30px;
 }
 
 /*page*/
