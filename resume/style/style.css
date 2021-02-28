@@ -112,6 +112,7 @@ main.right {
   width: 50%;
   min-height: calc(100vh - 151px);
   padding: 20px 30px 30px 0;
+  margin-top: 50px;
 }
 
 .main-header {
@@ -120,6 +121,10 @@ main.right {
   height: 40px;
   position: relative;
   margin-bottom: 10px;
+}
+
+.main-header.right {
+  margin-top: 20px;
 }
 
 .main-header .header-wrapper {
@@ -279,9 +284,12 @@ header {
   main.left {
     width: 100%;
     padding: 20px 30px 15px 15px;
+    padding-bottom: 0;
   }
   main.right {
     width: 100%;
     padding: 20px 30px 15px 15px;
+    margin-top: 0;
+    padding-top: 0;
   }
 }
