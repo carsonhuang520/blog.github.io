@@ -23,6 +23,12 @@ $(function () {
       case 'fast':
         duration = 10
         break
+      case 'change':
+        $(location).attr(
+          'href',
+          'https://carsonhuang520.github.io/blog.github.io/pikachu/'
+        )
+        break
     }
   })
   // const lower = document.querySelector('.lowerLip')
