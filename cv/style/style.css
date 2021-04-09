@@ -342,6 +342,9 @@ header {
   .content {
     padding-left: 20px;
   }
+  .content-wrapper {
+    padding-top: 0;
+  }
   .content-wrapper .content-header {
     padding-top: 5px;
     display: flex;
