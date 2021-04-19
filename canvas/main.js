@@ -14,6 +14,12 @@ var thick = document.getElementById('thick')
 
 var lineWidth = 5
 var eraserEnabled = false
+var points = []
+// context.lineJoin = 'round'
+// context.lineCap = 'round'
+// context.lineWidth = 10
+// context.shadowBlur = 10
+// context.shadowColor = 'rgb(0, 0, 0)'
 
 autoSetCanvasSize(board)
 listenToUser(board)
@@ -127,8 +133,25 @@ function drawLine(x1, y1, x2, y2) {
   context.moveTo(x1, y1)
   context.lineWidth = lineWidth
   context.lineTo(x2, y2)
+  // context.quadraticCurveTo(controlPoint.x, controlPoint.y, x2, y2)
   context.stroke()
   context.closePath()
+}
+
+function drawNewLine(p1, p2) {
+  context.beginPath()
+  context.moveTo(p1.x, p1.y)
+  context.lineWidth = lineWidth
+  context.lineJoin = 'round'
+  context.lineCap = 'round'
+  for (var i = 1; i < points.length; i++) {
+    var midPoint = getMid(p1, p2)
+    context.quadraticCurveTo(p1.x, p1.y, midPoint.x, midPoint.y)
+    p1 = points[i]
+    p2 = points[i + 1]
+  }
+  context.lineTo(p1.x, p1.y)
+  context.stroke()
 }
 
 function listenToUser(canvas) {
@@ -142,6 +165,7 @@ function listenToUser(canvas) {
     canvas.ontouchstart = function (e) {
       var x = e.touches[0].clientX
       var y = e.touches[0].clientY
+      points.push({ x, y })
       using = true
       if (eraserEnabled) {
         context.clearRect(x - 5, y - 5, 10, 10)
@@ -158,31 +182,38 @@ function listenToUser(canvas) {
       if (!using) {
         return
       }
+      points.push({ x, y })
       if (eraserEnabled) {
         context.clearRect(x - 5, y - 5, 10, 10)
       } else {
-        var newPoint = {
-          x: x,
-          y: y,
-        }
-        drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
-        lastPoint = newPoint
+        var p1 = points[0]
+        var p2 = points[1]
+        drawNewLine(p1, p2)
+        // var newPoint = {
+        //   x: x,
+        //   y: y,
+        // }
+        // drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
+        // lastPoint = newPoint
       }
     }
     canvas.ontouchend = function (e) {
       using = false
+      points.length = 0
     }
   } else {
     canvas.onmousedown = function (e) {
       var x = e.clientX
       var y = e.clientY
+      points.push({ x, y })
+      console.log(points)
       using = true
       if (eraserEnabled) {
         context.clearRect(x - 5, y - 5, 10, 10)
       } else {
         lastPoint = {
-          x: x,
-          y: y,
+          x,
+          y,
         }
       }
     }
@@ -192,19 +223,35 @@ function listenToUser(canvas) {
       if (!using) {
         return
       }
+      points.push({ x, y })
       if (eraserEnabled) {
         context.clearRect(x - 5, y - 5, 10, 10)
       } else {
-        var newPoint = {
-          x: x,
-          y: y,
-        }
-        drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
-        lastPoint = newPoint
+        var p1 = points[0]
+        var p2 = points[1]
+        drawNewLine(p1, p2)
+        // var newPoint = {
+        //   x,
+        //   y,
+        // }
+        // drawLine(lastPoint.x, lastPoint.y, newPoint.x, newPoint.y)
+        // lastPoint = newPoint
       }
     }
     canvas.onmouseup = function (e) {
+      if (!using) {
+        return
+      }
+      lastPoint = null
       using = false
+      points.length = 0
     }
+  }
+}
+
+function getMid(p1, p2) {
+  return {
+    x: p1.x + (p2.x - p1.x) / 2,
+    y: p1.y + (p2.y - p1.y) / 2,
   }
 }
