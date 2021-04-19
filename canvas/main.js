@@ -11,10 +11,14 @@ var blue = document.getElementById('blue')
 var yellow = document.getElementById('yellow')
 var thin = document.getElementById('thin')
 var thick = document.getElementById('thick')
+var undo = document.getElementById('undo')
+var redo = document.getElementById('redo')
 
 var lineWidth = 5
 var eraserEnabled = false
 var points = []
+let canvasHistory = []
+let step = -1
 // context.lineJoin = 'round'
 // context.lineCap = 'round'
 // context.lineWidth = 10
@@ -34,6 +38,35 @@ eraser.onclick = function () {
   eraserEnabled = true
   pen.classList.remove('active')
   eraser.classList.add('active')
+}
+
+undo.onclick = function () {
+  console.log(step)
+  if (step > 0) {
+    step--
+    let canvasPic = new Image()
+    canvasPic.src = canvasHistory[step]
+    canvasPic.addEventListener('load', () => {
+      context.clearRect(0, 0, board.width, board.height)
+      context.drawImage(canvasPic, 0, 0)
+    })
+  } else {
+    alert('不能再继续撤销了')
+  }
+}
+
+redo.onclick = function () {
+  if (step < canvasHistory.length - 1) {
+    step++
+    let canvasPic = new Image()
+    canvasPic.src = canvasHistory[step]
+    canvasPic.addEventListener('load', () => {
+      context.clearRect(0, 0, board.width, board.height)
+      context.drawImage(canvasPic, 0, 0)
+    })
+  } else {
+    alert('已经是最新的记录了')
+  }
 }
 
 del.onclick = function () {
@@ -154,6 +187,17 @@ function drawNewLine(p1, p2) {
   context.stroke()
 }
 
+function record() {
+  step++
+  if (step < canvasHistory.length) {
+    canvasHistory.length = step // 截断数组
+  }
+  // 执行绘制的相关操作（如绘制图片、线条等）
+  // ...
+  // ...
+  canvasHistory.push(board.toDataURL()) // 添加新的绘制到历史记录
+}
+
 function listenToUser(canvas) {
   var using = false
   var lastPoint = {
@@ -206,7 +250,6 @@ function listenToUser(canvas) {
       var x = e.clientX
       var y = e.clientY
       points.push({ x, y })
-      console.log(points)
       using = true
       if (eraserEnabled) {
         context.clearRect(x - 5, y - 5, 10, 10)
@@ -242,6 +285,7 @@ function listenToUser(canvas) {
       if (!using) {
         return
       }
+      record()
       lastPoint = null
       using = false
       points.length = 0
