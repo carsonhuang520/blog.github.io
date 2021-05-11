@@ -70,6 +70,8 @@ redo.onclick = function () {
 }
 
 del.onclick = function () {
+  step = 0
+  canvasHistory = []
   context.clearRect(0, 0, board.width, board.height)
 }
 
@@ -183,7 +185,7 @@ function drawNewLine(p1, p2) {
     p1 = points[i]
     p2 = points[i + 1]
   }
-  context.lineTo(p1.x, p1.y)
+  // context.lineTo(p1.x, p1.y)
   context.stroke()
 }
 
