@@ -244,6 +244,11 @@ function listenToUser(canvas) {
       }
     }
     canvas.ontouchend = function (e) {
+      if (!using) {
+        return
+      }
+      record()
+      lastPoint = null
       using = false
       points.length = 0
     }
