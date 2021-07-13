@@ -224,9 +224,15 @@ main {
   }
   .prev {
     right: 85px;
+    &.backend {
+      right: 170px;
+    }
   }
   .code {
     right: 0px;
+    &.frontend {
+      right: 85px;
+    }
   }
 }
 .content {
@@ -292,7 +298,7 @@ header {
   color: #fff;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 500px) {
   #page {
     width: 100vw;
     overflow: hidden;

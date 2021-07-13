@@ -201,7 +201,7 @@ main.right {
   margin-right: 4px;
   background: #ffffff;
   border-radius: 6px;
-  font-size: 14px;
+  font-size: 12px;
   padding: 0 2px;
   position: absolute;
   top: 5px;
@@ -213,11 +213,19 @@ main.right {
 }
 
 .sub-header .prev {
-  right: 85px;
+  right: 75px;
+}
+
+.sub-header .prev.backend {
+  right: 150px;
 }
 
 .sub-header .code {
   right: 0px;
+}
+
+.sub-header .code.frontend {
+  right: 75px;
 }
 
 .content {
@@ -270,7 +278,7 @@ header {
   color: #fff;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 500px) {
   #page {
     width: 100vw;
     overflow: hidden;

@@ -176,7 +176,7 @@ main.right {
     margin-right: 4px;
     background: #ffffff;
     border-radius: 6px;
-    font-size: 14px;
+    font-size: 12px;
     padding: 0 2px;
     position: absolute;
     top: 5px;
@@ -185,10 +185,16 @@ main.right {
     }
   }
   .prev {
-    right: 85px;
+    right: 75px;
+    &.backend {
+      right: 150px;
+    }
   }
   .code {
     right: 0px;
+    &.frontend {
+      right: 75px;
+    }
   }
 }
 .content {
@@ -238,7 +244,7 @@ header {
   color: #fff;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 500px) {
   #page {
     width: 100vw;
     overflow: hidden;

@@ -28,6 +28,9 @@ let step = -1
 autoSetCanvasSize(board)
 listenToUser(board)
 
+// context.fillStyle = '#fff'
+// context.fillRect(0, 0, board.width, board.height)
+
 pen.onclick = function () {
   eraserEnabled = false
   pen.classList.add('active')
@@ -76,13 +79,47 @@ del.onclick = function () {
 }
 
 save.onclick = function () {
-  var url = board.toDataURL('image/png')
-  var a = document.createElement('a')
-  document.body.appendChild(a)
-  a.href = url
-  a.download = '我的图画'
-  a.target = '_blank'
-  a.click()
+  // var url = board.toDataURL('image/png')
+  // toWhite()
+  // var url = board.toDataURL('image/jpeg', 1.0)
+  // var a = document.createElement('a')
+  // document.body.appendChild(a)
+  // a.href = url
+  // a.download = '我的图画'
+  // a.target = '_blank'
+  // a.click()
+  downloadBigImage()
+}
+
+// 下载较大图片，因为 canvas.toDataURL('image/png')这方法生成的 base64 的字符太大, 导致无法解析
+function downloadBigImage() {
+  board.toBlob(
+    function (blob) {
+      var a = document.createElement('a')
+      document.body.appendChild(a)
+      a.href = URL.createObjectURL(blob)
+      a.download = '我的图画'
+      a.target = '_blank'
+      a.click()
+    },
+    'image/png',
+    1
+  )
+}
+
+function toWhite() {
+  // 当该像素是透明的，则设置成白色
+  var imageData = context.getImageData(0, 0, board.width, board.height)
+  for (let i = 0; i < imageData.data.length; i += 4) {
+    // 当该像素是透明的，则设置成白色
+    if (imageData.data[i + 3] === 0) {
+      imageData.data[i] = 255
+      imageData.data[i + 1] = 255
+      imageData.data[i + 2] = 255
+      imageData.data[i + 3] = 255
+    }
+  }
+  context.putImageData(imageData, 0, 0)
 }
 
 black.onclick = function () {
